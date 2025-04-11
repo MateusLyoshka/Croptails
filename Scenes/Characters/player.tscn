@@ -1,12 +1,14 @@
-[gd_scene load_steps=50 format=3 uid="uid://bqptiypukvx66"]
+[gd_scene load_steps=52 format=3 uid="uid://bqptiypukvx66"]
 
-[ext_resource type="Texture2D" uid="uid://dnc2i68ckq86v" path="res://Assets/Characters/basic_character_actions.png" id="1_40svl"]
-[ext_resource type="Script" uid="uid://mqeh6d8s7n1c" path="res://Script/player.gd" id="1_khnq4"]
-[ext_resource type="Texture2D" uid="uid://ctouoy6fk1m7l" path="res://Assets/Characters/basic_charcter_spritesheet.png" id="2_al8ar"]
-[ext_resource type="Script" uid="uid://cv08np4lv7hyh" path="res://Script/node_state_machine.gd" id="3_gy20a"]
-[ext_resource type="Script" uid="uid://d3a2qkvrgtppg" path="res://Script/idle_state.gd" id="4_cqrjx"]
-[ext_resource type="Script" uid="uid://cmncna8bibn2k" path="res://Script/walk_state.gd" id="5_cqrjx"]
-[ext_resource type="Script" uid="uid://j0nnwcl86gmv" path="res://Script/chopping.gd" id="7_utp2y"]
+[ext_resource type="Texture2D" uid="uid://dnc2i68ckq86v" path="res://assets/characters/basic_character_actions.png" id="1_40svl"]
+[ext_resource type="Script" uid="uid://mqeh6d8s7n1c" path="res://script/player/player.gd" id="1_khnq4"]
+[ext_resource type="Texture2D" uid="uid://ctouoy6fk1m7l" path="res://assets/characters/basic_charcter_spritesheet.png" id="2_al8ar"]
+[ext_resource type="Script" uid="uid://cv08np4lv7hyh" path="res://script/node_state_machine.gd" id="3_gy20a"]
+[ext_resource type="Script" uid="uid://d3a2qkvrgtppg" path="res://script/player/idle_state.gd" id="4_cqrjx"]
+[ext_resource type="Script" uid="uid://cmncna8bibn2k" path="res://script/player/walk_state.gd" id="5_cqrjx"]
+[ext_resource type="Script" uid="uid://j0nnwcl86gmv" path="res://script/player/chopping.gd" id="7_utp2y"]
+[ext_resource type="Script" uid="uid://btfup8uv4lsvn" path="res://script/player/tilling.gd" id="8_eojnx"]
+[ext_resource type="Script" uid="uid://debsmjha26eq6" path="res://script/player/watering.gd" id="9_qgnko"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gy20a"]
 atlas = ExtResource("1_40svl")
@@ -177,7 +179,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cqrjx")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_back",
 "speed": 3.0
 }, {
@@ -188,7 +190,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_utp2y")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_front",
 "speed": 3.0
 }, {
@@ -199,7 +201,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xo8ps")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_left",
 "speed": 3.0
 }, {
@@ -210,7 +212,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_25bbb")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_right",
 "speed": 3.0
 }, {
@@ -265,7 +267,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uxymp")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_back",
 "speed": 3.0
 }, {
@@ -276,7 +278,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ddhxa")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_front",
 "speed": 3.0
 }, {
@@ -287,7 +289,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v8iml")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_left",
 "speed": 3.0
 }, {
@@ -298,7 +300,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rv8bj")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_right",
 "speed": 3.0
 }, {
@@ -353,7 +355,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j3fsp")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_back",
 "speed": 3.0
 }, {
@@ -364,7 +366,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sgb3t")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_front",
 "speed": 3.0
 }, {
@@ -375,7 +377,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yhd30")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_left",
 "speed": 3.0
 }, {
@@ -386,7 +388,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bgpn4")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_right",
 "speed": 3.0
 }]
@@ -396,11 +398,12 @@ radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_khnq4")
+current_tool = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3m5rm")
-animation = &"idle_front"
+animation = &"watering_right"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -421,5 +424,17 @@ script = ExtResource("5_cqrjx")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Chopping" type="Node" parent="StateMachine"]
+[node name="Chopping" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("7_utp2y")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Tilling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("8_eojnx")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("9_qgnko")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")

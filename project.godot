@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Croptails"
-run/main_scene="uid://csglain58tgvi"
+run/main_scene="uid://c48mb1vc6cdhb"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -28,6 +28,9 @@ window/stretch/scale_mode="integer"
 [file_customization]
 
 folder_colors={
+"res://Scenes/": "green",
+"res://Script/": "pink",
+"res://Tilesets/": "yellow",
 "res://assets/": "orange",
 "res://scenes/": "green",
 "res://script/": "pink",
@@ -71,6 +74,9 @@ hit={
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Interactable"
+2d_physics/layer_4="Tool"
+2d_physics/layer_5="Objects"
+2d_physics/layer_6="Collectable"
 
 [rendering]
 

@@ -1,14 +1,15 @@
-[gd_scene load_steps=52 format=3 uid="uid://bqptiypukvx66"]
+[gd_scene load_steps=54 format=3 uid="uid://bqptiypukvx66"]
 
 [ext_resource type="Texture2D" uid="uid://dnc2i68ckq86v" path="res://assets/characters/basic_character_actions.png" id="1_40svl"]
-[ext_resource type="Script" uid="uid://mqeh6d8s7n1c" path="res://script/player/player.gd" id="1_khnq4"]
+[ext_resource type="Script" uid="uid://mqeh6d8s7n1c" path="res://Script/player/player.gd" id="1_khnq4"]
 [ext_resource type="Texture2D" uid="uid://ctouoy6fk1m7l" path="res://assets/characters/basic_charcter_spritesheet.png" id="2_al8ar"]
-[ext_resource type="Script" uid="uid://cv08np4lv7hyh" path="res://script/node_state_machine.gd" id="3_gy20a"]
-[ext_resource type="Script" uid="uid://d3a2qkvrgtppg" path="res://script/player/idle_state.gd" id="4_cqrjx"]
-[ext_resource type="Script" uid="uid://cmncna8bibn2k" path="res://script/player/walk_state.gd" id="5_cqrjx"]
-[ext_resource type="Script" uid="uid://j0nnwcl86gmv" path="res://script/player/chopping.gd" id="7_utp2y"]
-[ext_resource type="Script" uid="uid://btfup8uv4lsvn" path="res://script/player/tilling.gd" id="8_eojnx"]
-[ext_resource type="Script" uid="uid://debsmjha26eq6" path="res://script/player/watering.gd" id="9_qgnko"]
+[ext_resource type="Script" uid="uid://cv08np4lv7hyh" path="res://Script/node_state_machine.gd" id="3_gy20a"]
+[ext_resource type="Script" uid="uid://d3a2qkvrgtppg" path="res://Script/player/idle_state.gd" id="4_cqrjx"]
+[ext_resource type="Script" uid="uid://cmncna8bibn2k" path="res://Script/player/walk_state.gd" id="5_cqrjx"]
+[ext_resource type="Script" uid="uid://j0nnwcl86gmv" path="res://Script/player/chopping.gd" id="7_utp2y"]
+[ext_resource type="Script" uid="uid://btfup8uv4lsvn" path="res://Script/player/tilling.gd" id="8_eojnx"]
+[ext_resource type="Script" uid="uid://debsmjha26eq6" path="res://Script/player/watering.gd" id="9_qgnko"]
+[ext_resource type="PackedScene" uid="uid://cgeg6jvxba0oi" path="res://Scenes/components/hit_component.tscn" id="10_fcmex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gy20a"]
 atlas = ExtResource("1_40svl")
@@ -396,16 +397,21 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_atmnh"]
 radius = 5.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_25bbb"]
+radius = 3.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_khnq4")
-current_tool = 3
+current_tool = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3m5rm")
-animation = &"watering_right"
+animation = &"chopping_front"
 autoplay = "idle_front"
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -425,10 +431,11 @@ script = ExtResource("5_cqrjx")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Chopping" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Chopping" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d", "hit_component_collision")]
 script = ExtResource("7_utp2y")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+hit_component_collision = NodePath("../../HitComponent/HitComponentCollisionShape2D")
 
 [node name="Tilling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("8_eojnx")
@@ -439,3 +446,10 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 script = ExtResource("9_qgnko")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="HitComponent" parent="." instance=ExtResource("10_fcmex")]
+
+[node name="HitComponentCollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_25bbb")
+debug_color = Color(0.831594, 0.314295, 0.604235, 0.42)

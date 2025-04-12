@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brbfedx07is2x"
-path="res://.godot/imported/Wooden_House_Roof_Tilset.png-bb23c2b1349ed5ef5c4a7bb8dd38ed3f.ctex"
+path="res://.godot/imported/Wooden_House_Roof_Tilset.png-b08a3e5d6ed365de81166a2caea2f47a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/Wooden_House_Roof_Tilset.png"
-dest_files=["res://.godot/imported/Wooden_House_Roof_Tilset.png-bb23c2b1349ed5ef5c4a7bb8dd38ed3f.ctex"]
+source_file="res://assets/tilesets/Wooden_House_Roof_Tilset.png"
+dest_files=["res://.godot/imported/Wooden_House_Roof_Tilset.png-b08a3e5d6ed365de81166a2caea2f47a.ctex"]
 
 [params]
 

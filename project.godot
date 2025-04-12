@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Croptails"
-run/main_scene="uid://dlx6k1877e04h"
+run/main_scene="uid://csglain58tgvi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -69,6 +69,8 @@ hit={
 [layer_names]
 
 2d_physics/layer_1="Ground"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Interactable"
 
 [rendering]
 

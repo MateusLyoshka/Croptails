@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bw8nrpgaskevf"]
 
 [ext_resource type="Texture2D" uid="uid://de8vo1imkp7fo" path="res://assets/objects/basic_grass_biome_things.png" id="1_vn8yf"]
-[ext_resource type="Script" uid="uid://xlx7u5g8lpti" path="res://Scenes/objects/trees/small_tree.gd" id="2_d4f5w"]
-[ext_resource type="PackedScene" uid="uid://cd73l5v2kohb1" path="res://Scenes/components/hurt_component.tscn" id="2_l7aov"]
-[ext_resource type="PackedScene" uid="uid://01f3d8cqjqdf" path="res://Scenes/components/damage_component.tscn" id="3_51715"]
-[ext_resource type="Shader" uid="uid://d31lx4kkig3ds" path="res://Scenes/objects/trees/tree_shake.gdshader" id="4_ebt4q"]
+[ext_resource type="Script" uid="uid://xlx7u5g8lpti" path="res://scenes/objects/trees/small_tree.gd" id="2_d4f5w"]
+[ext_resource type="PackedScene" uid="uid://cd73l5v2kohb1" path="res://scenes/components/hurt_component.tscn" id="2_l7aov"]
+[ext_resource type="PackedScene" uid="uid://01f3d8cqjqdf" path="res://scenes/components/damage_component.tscn" id="3_51715"]
+[ext_resource type="Shader" uid="uid://d31lx4kkig3ds" path="res://scenes/objects/shake.gdshader" id="4_ebt4q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ebt4q"]
 resource_local_to_scene = true
@@ -35,9 +35,6 @@ position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_g475i")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_l7aov")]
-collision_layer = 16
-collision_mask = 8
-tool = 1
 
 [node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 shape = SubResource("RectangleShape2D_51715")

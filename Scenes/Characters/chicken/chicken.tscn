@@ -70,7 +70,7 @@ script = ExtResource("1_r6a33")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_31inw")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -86,14 +86,8 @@ debug_enabled = true
 script = ExtResource("2_awcwn")
 initial_node_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite")]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_31inw")
-character = NodePath("../..")
-animated_sprite = NodePath("../../AnimatedSprite2D")
-idle_state_time_interval = 3.0
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite", "navigation_agent")]
+[node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("4_31inw")
-character = NodePath("../..")
-animated_sprite = NodePath("../../AnimatedSprite2D")
-navigation_agent = NodePath("../../NavigationAgent2D")

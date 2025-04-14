@@ -49,12 +49,12 @@ func _on_physics_process(_delta : float) -> void:
 func on_safe_velocity_computed(safe_velocity:Vector2) -> void:
 	animated_sprite.flip_h = safe_velocity.x < 0
 	character.velocity = safe_velocity
-	
 	character.move_and_slide()
 
 func _on_next_transitions() -> void:
 	if character.current_cycles == character.walk_cycles:
 		character.velocity = Vector2.ZERO
+		print("velocidade zero:",character.velocity)
 		transition.emit("idle")
 
 

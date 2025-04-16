@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Croptails"
-run/main_scene="uid://bslbpajkoip6q"
+run/main_scene="uid://bfsev70ygu2bd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ToolManager="*res://Script/globals/tool_manager.gd"
 
 [display]
 
@@ -68,6 +72,11 @@ walk_right={
 hit={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(318, 22),"global_position":Vector2(327, 70),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+release_tool={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(145, 22),"global_position":Vector2(154, 70),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 

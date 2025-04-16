@@ -404,7 +404,6 @@ radius = 3.0
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_khnq4")
-current_tool = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)

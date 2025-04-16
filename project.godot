@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Croptails"
-run/main_scene="uid://cf7e1687c275j"
+run/main_scene="uid://bslbpajkoip6q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/window_width_override=1366
+window/size/window_height_override=768
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
@@ -32,6 +34,10 @@ folder_colors={
 "res://script/": "pink",
 "res://tilesets/": "yellow"
 }
+
+[global_group]
+
+navigation_polygon_source_geometry_group=""
 
 [input]
 
@@ -75,6 +81,7 @@ hit={
 2d_physics/layer_4="Tool"
 2d_physics/layer_5="Objects"
 2d_physics/layer_6="Collectable"
+2d_physics/layer_7="NPC"
 
 [rendering]
 

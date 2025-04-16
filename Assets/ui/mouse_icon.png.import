@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c70mnv2wvg13h"
-path="res://.godot/imported/basic_plants.png-e17f13c232bdc5bdaf3cbdad5cff4d17.ctex"
+uid="uid://c4nhclq6f48ho"
+path="res://.godot/imported/mouse_icon.png-67f27c0f39c79c6579b122cae0d75b42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/basic_plants.png"
-dest_files=["res://.godot/imported/basic_plants.png-e17f13c232bdc5bdaf3cbdad5cff4d17.ctex"]
+source_file="res://assets/ui/mouse_icon.png"
+dest_files=["res://.godot/imported/mouse_icon.png-67f27c0f39c79c6579b122cae0d75b42.ctex"]
 
 [params]
 

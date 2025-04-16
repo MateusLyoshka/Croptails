@@ -28,11 +28,11 @@ func set_movement_target() -> void:
 func _on_process(_delta : float) -> void:
 	pass
 
-
 func _on_physics_process(_delta : float) -> void:
 	if navigation_agent.is_navigation_finished():
 		character.current_cycles += 1
 		set_movement_target()
+		return
 	
 	var target_position: Vector2 = navigation_agent.get_next_path_position()
 	var target_direction: Vector2 = character.global_position.direction_to(target_position)

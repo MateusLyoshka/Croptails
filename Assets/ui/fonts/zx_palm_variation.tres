@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://1dbukwtip5ym"]
+
+[ext_resource type="FontFile" uid="uid://dgqh62p0cd7gk" path="res://assets/ui/fonts/zx_palm.ttf" id="1_og8aj"]
+
+[resource]
+base_font = ExtResource("1_og8aj")
+spacing_glyph = -3
+spacing_top = 2
+spacing_bottom = 1

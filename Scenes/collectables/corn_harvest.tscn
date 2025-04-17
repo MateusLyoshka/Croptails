@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlio3kdexnnky"]
+
+[ext_resource type="Texture2D" uid="uid://c70mnv2wvg13h" path="res://assets/objects/basic_plants.png" id="1_r5trm"]
+[ext_resource type="PackedScene" uid="uid://4tytb7ietuwg" path="res://scenes/components/collectable_component.tscn" id="2_unprh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6dtr"]
+atlas = ExtResource("1_r5trm")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hk8mv"]
+
+[node name="CornHarvest" type="Sprite2D"]
+texture = SubResource("AtlasTexture_a6dtr")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_unprh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_hk8mv")

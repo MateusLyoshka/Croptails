@@ -13,6 +13,7 @@ region = Rect2(80, 0, 16, 16)
 texture = SubResource("AtlasTexture_a6dtr")
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_unprh")]
+collectable_name = "corn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
 y_sort_enabled = true

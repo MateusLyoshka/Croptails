@@ -27,23 +27,42 @@ tile_set = ExtResource("1_3sr8u")
 position = Vector2(301, 197)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
 
 [node name="GameScreen" parent="." instance=ExtResource("3_xpu3d")]
 
 [node name="CornHarvest" parent="." instance=ExtResource("4_c2yua")]
 position = Vector2(262, 225)
 
+[node name="CornHarvest2" parent="." instance=ExtResource("4_c2yua")]
+position = Vector2(268, 225)
+
 [node name="Egg" parent="." instance=ExtResource("5_e2iwo")]
+position = Vector2(304, 225)
+
+[node name="Egg2" parent="." instance=ExtResource("5_e2iwo")]
 position = Vector2(298, 225)
 
 [node name="Log" parent="." instance=ExtResource("6_8cqc4")]
+position = Vector2(340, 225)
+
+[node name="Log2" parent="." instance=ExtResource("6_8cqc4")]
 position = Vector2(332, 225)
 
 [node name="MilkBottle" parent="." instance=ExtResource("7_pq5l2")]
+position = Vector2(269, 260)
+
+[node name="MilkBottle2" parent="." instance=ExtResource("7_pq5l2")]
 position = Vector2(262, 260)
 
 [node name="Stone" parent="." instance=ExtResource("8_83et0")]
+position = Vector2(303, 256)
+
+[node name="Stone2" parent="." instance=ExtResource("8_83et0")]
 position = Vector2(297, 261)
 
 [node name="TomatoHarvest" parent="." instance=ExtResource("9_ejaeq")]
+position = Vector2(326, 253)
+
+[node name="TomatoHarvest2" parent="." instance=ExtResource("9_ejaeq")]
 position = Vector2(333, 258)

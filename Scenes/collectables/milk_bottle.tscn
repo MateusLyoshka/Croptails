@@ -14,6 +14,7 @@ radius = 9.0
 texture = SubResource("AtlasTexture_csxkl")
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_awrfw")]
+collectable_name = "milk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
 y_sort_enabled = true

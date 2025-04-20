@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://4sf5bs00lwkj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ucl7"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+angular_velocity_min = -300.0
+angular_velocity_max = 300.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+gravity = Vector3(0, -10, 0)
+color = Color(0.3828, 0.82128, 0.87, 1)
+
+[node name="WateringParticles" type="GPUParticles2D"]
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_5ucl7")

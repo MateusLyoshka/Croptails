@@ -7,17 +7,21 @@ extends Node
 signal crop_maturity
 signal crop_harvesting
 
-var is_watered: bool
-var current_day: int
-var starting_day: int
+var states:int = DataTypes.GrowthStates.keys().size()-1
+var is_watered:bool
+var current_day:int
+var starting_day:int
+var watered_days:int = 1
 
 func _ready() -> void:
 	DayAndNightManager.time_tick_day.connect(on_time_tick_day)
 	
 func on_time_tick_day(day: int) -> void:
-	if is_watered:
+	if is_watered and watered_days < states:
+		is_watered = false
 		if starting_day == 0:
 			starting_day = day
+		watered_days += 1
 		growth_states(starting_day, day)
 		harvest_state(starting_day, day)
 		
@@ -25,10 +29,9 @@ func growth_states(starting_day:int, current_day:int):
 	if current_growth_state == DataTypes.GrowthStates.Maturity:
 		return
 	
-	var num_states = 5
-	
-	var growth_days_passed = (current_day - starting_day) % num_states
-	var state_index = growth_days_passed % num_states + 1
+	var growth_days_passed = (watered_days - 1) % states
+	print(growth_days_passed)
+	var state_index = growth_days_passed + 1
 	
 	current_growth_state = state_index
 	
@@ -43,9 +46,7 @@ func harvest_state(starting_day:int, current_day:int) -> void:
 	if current_growth_state == DataTypes.GrowthStates.Harvesting:
 		return
 	
-	var days_passed = (current_day - starting_day) % days_until_harvest 
-	
-	if days_passed == days_until_harvest -1:
+	if watered_days == days_until_harvest - 1:
 		current_growth_state = DataTypes.GrowthStates.Harvesting
 		crop_harvesting.emit()
 	

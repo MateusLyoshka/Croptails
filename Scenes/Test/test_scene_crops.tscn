@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://dlhge2shmvk76"]
+[gd_scene load_steps=7 format=4 uid="uid://dlhge2shmvk76"]
 
 [ext_resource type="PackedScene" uid="uid://ddgioyq7qh43x" path="res://scenes/components/day_night_cycle_component.tscn" id="1_imry4"]
+[ext_resource type="PackedScene" uid="uid://dlio3kdexnnky" path="res://scenes/collectables/corn_harvest.tscn" id="1_s5uu4"]
 [ext_resource type="TileSet" uid="uid://dt3v8uqssa0rh" path="res://Tilesets/game_tile_set.tres" id="2_0vjha"]
 [ext_resource type="PackedScene" uid="uid://bqptiypukvx66" path="res://scenes/characters/player.tscn" id="3_5xne8"]
 [ext_resource type="PackedScene" uid="uid://432fshye6y6u" path="res://scenes/ui/game_screen.tscn" id="4_0gc43"]
@@ -9,8 +10,10 @@
 [node name="TestSceneTilemap" type="Node2D"]
 y_sort_enabled = true
 
+[node name="CornHarvest" parent="." instance=ExtResource("1_s5uu4")]
+position = Vector2(253, 163)
+
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_imry4")]
-visible = false
 
 [node name="GameTilemap" type="Node2D" parent="."]
 
@@ -26,7 +29,7 @@ tile_set = ExtResource("2_0vjha")
 position = Vector2(301, 197)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2.5, 2.5)
 
 [node name="GameScreen" parent="." instance=ExtResource("4_0gc43")]
 

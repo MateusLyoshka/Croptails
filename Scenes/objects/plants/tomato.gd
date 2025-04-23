@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var corn_harvest_scene = preload("res://scenes/collectables/corn_harvest.tscn")
+@export var tomato_harvest_scene = preload("res://scenes/collectables/tomato_harvest.tscn")
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var flowering: GPUParticles2D = $Flowering
@@ -8,6 +8,7 @@ extends Node2D
 @onready var growth_cycle_component: GrowthCycleComponent = $GrowthCycleComponent
 @onready var hurt_component: hurt_component = $HurtComponent
 
+var start_tomato_frame: int = 6
 var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
 var last_growth_state: int = -1
 var has_been_harvested: bool = false
@@ -21,7 +22,7 @@ func _ready() -> void:
 	growth_cycle_component.crop_harvesting.connect(on_crop_harvesting)
 
 func _process(delta: float) -> void:	
-	var new_state = growth_cycle_component.get_current_growth_state()
+	var new_state = growth_cycle_component.get_current_growth_state() + start_tomato_frame
 	if new_state != last_growth_state:
 		last_growth_state = new_state
 		growth_state = new_state
@@ -44,9 +45,9 @@ func on_crop_harvesting() -> void:
 		return
 	has_been_harvested = true
 
-	var corn_harvesting = corn_harvest_scene.instantiate() as Node2D
-	corn_harvesting.global_position = global_position
-	get_parent().add_child(corn_harvesting)
+	var tomato_harvesting = tomato_harvest_scene.instantiate() as Node2D
+	tomato_harvesting.global_position = global_position
+	get_parent().add_child(tomato_harvesting)
 	queue_free()
 
 func set_flowering_emission(state: bool) -> void:

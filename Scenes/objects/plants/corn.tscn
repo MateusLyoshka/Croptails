@@ -25,7 +25,6 @@ frame = 1
 [node name="WateringParticles" parent="." instance=ExtResource("2_ofjf8")]
 
 [node name="GrowthCycleComponent" parent="." instance=ExtResource("5_q3ekf")]
-days_until_harvest = 5
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_aphyd")]
 tool = 3

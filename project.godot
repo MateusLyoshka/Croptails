@@ -19,13 +19,12 @@ config/icon="res://icon.svg"
 
 ToolManager="*res://Script/globals/tool_manager.gd"
 InventoryManager="*res://Script/globals/inventory_manager.gd"
+DayAndNightManager="*res://Script/globals/day_and_night_manager.gd"
 
 [display]
 
-window/size/viewport_width=576
-window/size/viewport_height=324
-window/size/window_width_override=1152
-window/size/window_height_override=648
+window/size/viewport_width=960
+window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
